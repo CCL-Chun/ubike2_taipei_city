@@ -1,5 +1,7 @@
 #!/bin/bash
-#wget https://tcgbusfs.blob.core.windows.net/dotapp/youbike_second_ticket_opendata/2023/2023-05/202305_YouBike2.0票證刷卡資料.zip
+##download YouBike2.0 rent records from the Government open data platform
+
+wget https://tcgbusfs.blob.core.windows.net/dotapp/youbike_second_ticket_opendata/2023/2023-05/202305_YouBike2.0票證刷卡資料.zip
 wget https://tcgbusfs.blob.core.windows.net/dotapp/youbike_second_ticket_opendata/2023/2023-04/202304_YouBike2.0票證刷卡資料.zip
 wget https://tcgbusfs.blob.core.windows.net/dotapp/youbike_second_ticket_opendata/2023/2023-03/202303_YouBike2.0票證刷卡資料.zip
 wget https://tcgbusfs.blob.core.windows.net/dotapp/youbike_second_ticket_opendata/2023/2023-02/202302_YouBike2.0票證刷卡資料.zip
