@@ -46,18 +46,24 @@ Crawls the [CWA Observation Data Inquire System](https://e-service.cwb.gov.tw/Hi
 Here is a simple flow chart:
 
 ```mermaid
-graph TD;
-    A[資料收集] --> B[從Taipei City YouBike2.0 API獲取即時資料];
-    A --> C[從CWA Observation Data Inquire System爬取每日天氣監測資料];
-    A --> D[下載所有存在的zip文件];
-    B --> E[資料清洗和整理];
-    C --> E;
-    D --> E;
-    E --> F[從API響應中提取站名、區域、經度和緯度];
-    E --> G[處理奇怪的站名並統一它們以進一步連接表格];
-    E --> H[處理從youbike2.0下載的zip文件並輸出tab分隔表格];
-    E --> I[讀取所有zip文件並處理所有資訊修正，表格連接和處理表格以便於視覺化];
-    I --> J[數據統計];
-    J --> K[資料視覺化];
-    K --> L[使用Tableau創建儀表板並發布到GitHub Pages]
-```
+graph LR
+subgraph 資料收集
+    A[資料] --> B[API] --> C[爬蟲程式]
+end
+subgraph 資料清洗整理
+    C[爬蟲程式] --> D[整理程式] --> E[乾淨資料]
+end
+subgraph 數據統計
+    E[乾淨資料] --> F[統計程式] --> G[統計結果]
+end
+subgraph 視覺化
+    G[統計結果] --> H[視覺化程式] --> I[視覺化圖表]
+end
+A[資料] --> B[API]
+B[API] --> C[爬蟲程式]
+C[爬蟲程式] --> D[整理程式]
+D[整理程式] --> E[乾淨資料]
+E[乾淨資料] --> F[統計程式]
+F[統計程式] --> G[統計結果]
+G[統計結果] --> H[視覺化程式]
+H[視覺化程式] --> I[視覺化圖表]
