@@ -33,7 +33,7 @@ DB2 -->|API response\ndata structure converting| Real-time\ntable
 Real-time\ntable -->|Deployment| web\npage
 web\npage -->|embedding| DashBoard
 
-DB1 -->|download.sh|Historical\ntable
+DB1 -->|download all\n monthly files|Historical\ntables
 Real-time\ntable -->|station info\nextraction| Large\nRawTable
 Historical\ntable -->|Data cleaning,\nfiltering and\ntable join| Large\nRawTable
 Large\nRawTable -->|statistical process| summarized_tables
@@ -50,34 +50,34 @@ summarized_tables -->|visualization| DashBoard
 
 * [station_name_check.R](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/station_name_check.R)
 
-This R script handles stations name with weired or garbled characters or synonumous and then unifies them for further table join
+  This R script handles stations name with weired or garbled characters or synonumous and then unifies them for further table join
 
 * [download.sh](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/download.sh)
 
-Download all exist zip files from OpenData (all urls were extracted from csv)
+  Download all exist zip files from OpenData (all urls were extracted from csv)
 
 * [read_monthly_data_analysis.R](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/read_monthly_data_analysis.R)
 
-Read all zip files using [data_plastic.sh](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/data_plastic.sh) and process all info corrections, table join and processed tables for visualisation
+  Read all zip files using [data_plastic.sh](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/data_plastic.sh) and process all info corrections, table join and processed tables for visualisation
 
 * [data_plastic.sh](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/data_plastic.sh)
 
-Dealing with zip files(csv inside) downloading from youbike2.0 and output tab seperation table
+  Dealing with zip files(csv inside) downloading from youbike2.0 and output tab seperation table
 
-removing characters that didn't support by UTF-8 or other encodes (some stations' name, details in station_name_check.R)
+  removing characters that didn't support by UTF-8 or other encodes (some stations' name, details in station_name_check.R)
 
 * [catch_taipeicity_ubike2_per_min.py](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/catch_taipeicity_ubike2_per_min.py)
 
-Retrieve instant information from OpenData [Taipei City YouBike2.0 API](https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json)
+  Retrieve instant information from OpenData [Taipei City YouBike2.0 API](https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json)
 
-This python script contains three main functions: 
-1) Get the API response per minutes and save to a timestamp file
-2) Check the response status in 10 seconds and retry after 5 seconds to avoid time-out error
-3) Convert JSON data to tab-seperate format 
+  This python script contains three main functions:
+  1) Get the API response per minutes and save to a timestamp file
+  2) Check the response status in 10 seconds and retry after 5 seconds to avoid time-out error
+  3) Convert JSON data to tab-seperate format 
 
 * [new_catch_weather_data.py](https://github.com/CCL-Chun/ubike2_taipei_city/blob/main/scripts/new_catch_weather_data.py)
 
-Crawls the [CWA Observation Data Inquire System](https://e-service.cwb.gov.tw/HistoryDataQuery/) website for daily weather monitoring data. The script will crawl the website for each day between the start date and the end date. For each day, the script will extract the hourly weather data from the monitoring table.
+  Crawls the [CWA Observation Data Inquire System](https://e-service.cwb.gov.tw/HistoryDataQuery/) website for daily weather monitoring data. The script will crawl the website for each day between the start date and the end date. For each day, the script will extract the hourly weather data from the monitoring table.
 
 
 
