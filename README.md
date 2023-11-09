@@ -33,7 +33,7 @@ DB2 -->|API response\ndata structure converting| Real-time\ntable
 Real-time\ntable -->|Deployment| web\npage
 web\npage -->|embedding| DashBoard
 
-DB1 -->|download all\n monthly files|Historical\ntables
+DB1 -->|download.sh|Historical\ntable
 Real-time\ntable -->|station info\nextraction| Large\nRawTable
 Historical\ntable -->|Data cleaning,\nfiltering and\ntable join| Large\nRawTable
 Large\nRawTable -->|statistical process| summarized_tables
